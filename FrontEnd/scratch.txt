@@ -1,0 +1,21 @@
+
+
+     // chrome.tabs.sendRequest({action:"sendDOM"}).then(function(response) {
+        //console.log("submit stage 2")
+
+
+        //fetch("http://127.0.0.1:3001/", {
+        //  method: "POST",
+         // headers: {
+         //   "Content-Type": "application/json"
+         // },
+          //body: Buffer.from(JSON.stringify({ "DOM": response }))
+          //body: JSON.stringify({"Boo" : "Boo", data: response})
+        //}).catch(function(error) {
+        //  console.log("error with request to backend: \n",error)
+       // });
+            
+      //}).catch(function(error) {
+        //  console.log("error with request to content-script: \n",error)
+     // });
+    }
