@@ -2,17 +2,17 @@
   "manifest_version": 3,
   "name": "Nuntia",
   "version": "1.0",
-  "permissions": ["activeTab","tabs"],  
+  "permissions": ["activeTab","tabs","scripting"],  
   "action": {
     "default_popup": "popup.html"
   },
   "background": {
-    "service_worker": "service-worker.js"
+    "service_worker": "background.js"
   },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["content-script.js"]
+      "js": ["content-scripts/cs.js"]
     }
   ],
   "externally_connectable": {

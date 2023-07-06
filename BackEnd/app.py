@@ -1,6 +1,6 @@
 from flask import Flask, request
 import json
-import political_bias
+# import political_bias
 app = Flask(__name__)
 
 @app.route('/', methods=['POST'])
@@ -10,7 +10,7 @@ def log_data():
     # Here, we simply print it to the console
     print("Received data:", data)
     response = {
-        "BERT" : political_bias.BERT(data)
+        "data recieved"
     }
     return json.dump(response)
 

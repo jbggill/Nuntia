@@ -1,21 +1,24 @@
+async function getCurrentTab() {
+  let queryOptions = { active: true, lastFocusedWindow: true };
+  // `tab` will either be a `tabs.Tab` instance or `undefined`.
+  let [tab] = await chrome.tabs.query(queryOptions);
+  return tab;
+}
 
 
-     // chrome.tabs.sendRequest({action:"sendDOM"}).then(function(response) {
-        //console.log("submit stage 2")
+// A function to use as callback
+function doStuffWithDom(domContent) {
+    console.log('I received the following DOM content:\n' + domContent);
+}
 
-
-        //fetch("http://127.0.0.1:3001/", {
-        //  method: "POST",
-         // headers: {
-         //   "Content-Type": "application/json"
-         // },
-          //body: Buffer.from(JSON.stringify({ "DOM": response }))
-          //body: JSON.stringify({"Boo" : "Boo", data: response})
-        //}).catch(function(error) {
-        //  console.log("error with request to backend: \n",error)
-       // });
-            
-      //}).catch(function(error) {
-        //  console.log("error with request to content-script: \n",error)
-     // });
+// When the browser-action button is clicked...
+chrome.runtime.onMessage.addListener(async function (msg, sender, response) {
+    // ...check the URL of the active tab against our pattern and...
+    if (msg.action === 'submit') {
+      console.log('submit intiated-- background.js')
+      var tab = await getCurrentTab()
+      console.log(tab.id)
+        // ...if it matches, send a message specifying a callback too
+        chrome.tabs.sendMessage(tab.id, {text: 'report_back'}, doStuffWithDom);
     }
+});
