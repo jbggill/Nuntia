@@ -1,15 +1,21 @@
 chrome.runtime.onMessage.addListener(async function (msg, sender, sendResponse) {
-  // ...check the URL of the active tab against our pattern and...
   if (msg.action === 'submit') {
+    const currentTab = await chrome.tabs.query({ active: true, currentWindow: true });
     console.log("body: ", msg.body);
-    
+    console.log("url: ", currentTab[0].url);
+
+    // Convert body to JSON string
+    const requestBody = JSON.stringify({
+      url: currentTab[0].url
+    });
+
     // Send the body to localhost:3001
     fetch('http://localhost:3001', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: msg.body,
+      body: requestBody
     })
       .then(response => response.json())
       .then(data => {
@@ -20,8 +26,7 @@ chrome.runtime.onMessage.addListener(async function (msg, sender, sendResponse) 
         console.error('Error sending body to server:', error);
         sendResponse('error');
       });
-      
-    // Indicate that the message is being handled asynchronously
+
     return true;
   }
 });
