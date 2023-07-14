@@ -1,22 +1,41 @@
-from flask import Flask, request
-import json
-import political_bias
-import article_processor
+from flask import Flask, request, jsonify
+from article_processor import ArticleParser
+from political_bias import BiasAnalyzer
+
 app = Flask(__name__)
+bias_analyzer = BiasAnalyzer()
 
 @app.route('/', methods=['POST'])
-def log_data():
+def handle_post():
     data = request.get_json()
-    print("Received data:", data)
-    contents = article_processor.getContents('https://www.foxnews.com/media/democratic-strategist-scolds-biden-not-recognizing-seventh-grandchild-humanity')
-    bias = political_bias.BERT(contents[:len(contents)//2])
+
+    # Check if 'html' or 'url' exists in the received data
+    if 'html' in data:
+        print('recieved html data')
+        # If 'html' exists, set the HTML content in the parser
+        parser = ArticleParser('')
+        parser.set_html(data['html'])
+    elif 'url' in data:
+        print('recieved url data')
+        # If 'url' exists, set the URL in the parser and download the article
+        parser = ArticleParser(data['url'])
+        parser.download()
+    else:
+        print('did not receive valid data')
+        # If neither 'html' nor 'url' exists, return an error response
+        error = {'error': 'insufficient information to parse the article'}
+        return jsonify(error)
+
+    parser.parse()  # Parse the article
+    contents = parser.get_text()  # Get the parsed text content of the article
+
+    # Process the contents using BiasAnalyzer
+    bias = bias_analyzer.analyze(contents[len(contents) // 2])
     print(bias)
-    response = {
-        "message":bias
-    }
 
-    return json.dumps(response)
-
+    # Prepare the response
+    response = {"message": bias}
+    return jsonify(response)
 
 if __name__ == '__main__':
     app.run(port=3001)
