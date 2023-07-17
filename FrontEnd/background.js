@@ -1,12 +1,12 @@
 chrome.runtime.onMessage.addListener(async function (msg, sender, sendResponse) {
   if (msg.action === 'submit') {
     const currentTab = await chrome.tabs.query({ active: true, currentWindow: true });
-    console.log("body: ", msg.body);
-    console.log("url: ", currentTab[0].url);
+    //console.log("body: ", msg.body);
+    //console.log("url: ", currentTab[0].url);
 
     // Convert body to JSON string
     const requestBody = JSON.stringify({
-      url: currentTab[0].url
+      'html': msg.body
     });
 
     // Send the body to localhost:3001

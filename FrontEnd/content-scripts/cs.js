@@ -15,6 +15,6 @@ document.getElementById('read-content').addEventListener('click', () => {
     chrome.scripting.executeScript({
       target: { tabId: tab.id },
       func: sendBody,
-    }).then(() => console.log('Injected a function!'));
+    }).then(() => console.log('Injected a sendBody()'));
   });
 });
