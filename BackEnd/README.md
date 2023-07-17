@@ -49,7 +49,8 @@ Request with HTML data:
 ```json
 {
   "html": "<p>This is the HTML content of the article...</p>"
-}``` 
+}
+``` 
 Request with URL data:
 ```{json}
 {
