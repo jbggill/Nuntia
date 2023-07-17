@@ -44,13 +44,13 @@ This endpoint handles the parsing and bias analysis of articles. The Nuntia exte
 
 The backend expects a JSON payload with either 'html' or 'url' data. Example requests:
 
-1. Request with HTML data:
+Request with HTML data:
 
 ```json
 {
   "html": "<p>This is the HTML content of the article...</p>"
-}
-1. Request with URL data:
+}``` 
+Request with URL data:
 ```{json}
 {
   "url": "https://example.com/article"
