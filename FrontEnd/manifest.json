@@ -2,9 +2,14 @@
   "manifest_version": 3,
   "name": "Nuntia",
   "version": "1.0",
-  "permissions": ["activeTab","tabs","scripting", "storage"],  
+  "permissions": ["activeTab","tabs","scripting", "storage"], 
+  "icons": {
+    "48": "images/nuntiaLogo48.png",
+    "128": "images/nuntiaLogo128.png"
+  },
   "action": {
-    "default_popup": "popup/popup.html"
+    "default_popup": "popup/popup.html",
+    "default_icon": "images/nuntiaLogo48.png"
   },
   "background": {
     "service_worker": "background.js"
