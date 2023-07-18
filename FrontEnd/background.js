@@ -18,9 +18,11 @@ chrome.runtime.onMessage.addListener(async function (msg, sender, sendResponse) 
       body: requestBody
     })
       .then(response => response.json())
-      .then(data => {
-        console.log('Response from server:', data);
-        sendResponse('received');
+      .then(bias => {
+        console.log('Response from server:', bias);
+        chrome.runtime.sendMessage({action: "setBiasScore", data:bias}, function(response) {
+          console.log(response);
+        });
       })
       .catch(error => {
         console.error('Error sending body to server:', error);
