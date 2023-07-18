@@ -69,24 +69,57 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
   }
+  .range {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 100%; /* Full-width */
+    height: 25px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+  }
+/* Add this CSS code to style the sliders and their values */
+.slider-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
 
-  .slider-container {
-    width: 80%;
-    margin: 10px auto;
-    display: flex;
-    align-items: center;
-  }
-  
-  input[type="range"] {
-    width: 100%;
-    margin: 0 10px;
-  }
-  
-  p {
-    margin: 0;
-    font-size: 16px;
-    font-weight: bold;
-  }
-  
+input[type="range"] {
+  width: 100%;
+  margin: 0 10px;
+}
 
-  
+/* Styles for the slider thumb (handle) for different browsers */
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background-color: blue; /* Blue color for the thumb */
+  border-radius: 50%; /* Make the thumb round */
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 15px; /* Adjust the width of the thumb */
+  height: 15px; /* Adjust the height of the thumb */
+  background-color: blueviolet; /* Blueviolet color for the thumb */
+  border-radius: 50%; /* Make the thumb round */
+  cursor: pointer;
+}
+
+input[type="range"]::-ms-thumb {
+  width: 15px; /* Adjust the width of the thumb */
+  height: 15px; /* Adjust the height of the thumb */
+  background-color: blue; /* Blue color for the thumb */
+  border-radius: 50%; /* Make the thumb round */
+  cursor: pointer;
+}
+
+p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+}

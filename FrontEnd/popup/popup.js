@@ -37,14 +37,14 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
       biasScoreElementCentre.textContent = `Center: ${data.center}%`;
       
       // Set the slider values based on the received data
-      $('#bias-slider-left').val(data.left);
-      $('#bias-slider-right').val(data.right);
-      $('#bias-slider-center').val(data.center);
+      document.getElementById('bias-slider-left').value = data.left;
+      document.getElementById('bias-slider-right').value = data.right;
+      document.getElementById('bias-slider-center').value = data.center;
     }
   }
 });
 
-// Handle slider input events to update the bias percentages
+// Handle slider input events to update the bias percentages\
 /** 
 $('.slider-container input[type="range"]').on('input', function() {
   const sliderId = this.id;
