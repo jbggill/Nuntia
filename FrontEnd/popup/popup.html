@@ -12,9 +12,19 @@
 
   <img id= "frame" src="../images/Frame 2.png" alt = "frame">
   <div id="message">
-    <p id="page-bias-value-left">Bias Score Left: <span id="bias-score-left"></span></p>
-    <p id="page-bias-value-right">Bias Score Right: <span id="bias-score-right"></span></p>
-    <p id="page-bias-value-center">Bias Score Center: <span id="bias-score-center"></span></p>
+    <div class="slider-container">
+      <input type="range" id="bias-slider-left" min="0" max="100" step="1" value="50" disabled />
+      <p id="page-bias-value-left"><span id="bias-score-left">Left: 50%</span></p>
+    </div>
+    <div class="slider-container">
+      <input type="range" id="bias-slider-right" min="0" max="100" step="1" value="50" disabled />
+      <p id="page-bias-value-right"><span id="bias-score-right">Right: 50%</span></p>
+    </div>
+    <div class="slider-container">
+      <input type="range" id="bias-slider-center" min="0" max="100" step="1" value="50" disabled />
+      <p id="page-bias-value-center"><span id="bias-score-center">Center: 50%</span></p>
+    </div>
+    
   </div>
   <script src="popup.js"></script>
 </body>
