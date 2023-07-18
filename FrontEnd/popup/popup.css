@@ -29,11 +29,11 @@ body {
     filter: drop-shadow(1.904328465461731px 3.808656930923462px 3.808656930923462px rgba(0, 0, 0, 0.65));
   }
 
-  #start {
+  #read-content {
     position: absolute;
     top: 80%;
     left: 50%;
-    background-image: url('Group 23.png');
+    background-image: url('../images/Group 23.png');
     background-size: cover;
     border: none;
     transform: translate(-50%, -50%);
@@ -46,7 +46,7 @@ body {
 
   }
 
-  #start:hover {
+  #read-content:hover {
     cursor: pointer;
   }
 
