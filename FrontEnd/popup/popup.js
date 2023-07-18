@@ -28,13 +28,13 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
       console.log(data)
       console.log(data.left)
       const biasScoreElementLeft = document.getElementById('page-bias-value-left');
-      biasScoreElementLeft.textContent = `Left: ${data.left}$`;
+      biasScoreElementLeft.textContent = `Left: ${data.left}%`;
 
       const biasScoreElementRight = document.getElementById('page-bias-value-right');
-      biasScoreElementRight.textContent = `Right: ${data.right}`;
+      biasScoreElementRight.textContent = `Right: ${data.right}%`;
 
       const biasScoreElementCentre = document.getElementById('page-bias-value-center');
-      biasScoreElementCentre.textContent = `Center: ${data.center}`;
+      biasScoreElementCentre.textContent = `Center: ${data.center}%`;
      }
     }
 })

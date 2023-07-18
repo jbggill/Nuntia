@@ -11,21 +11,16 @@ class BiasAnalyzer:
         inputs = self.tokenizer(text, return_tensors="pt")
         outputs = self.model(**inputs, labels=self.labels)
         loss, logits = outputs[:2]
-        print(logits.tolist()[0])
-        return self.percentages(logits.tolist()[0])
+        output = logits.softmax(dim=-1)[0].tolist()
+        print(output)
+        return self.labelOutput(output)
 
     @staticmethod
-    def percentages(lst):
-        lst = [val + 5 for val in lst]
-        total = sum(lst)
-        normalized = [val / total for val in lst]
-
-        # Convert to percentages
-        percentages = [val * 100 for val in normalized]
-        labels = ['left', 'center', 'right']
+    def labelOutput(lst):
+        lst = [round((l * 100),2) for l in lst]
         output = {
-            'left': percentages[0],
-            'center': percentages[1],
-            'right': percentages[2]
+            'left': lst[0],
+            'center': lst[1],
+            'right': lst[2]
         }
         return output
