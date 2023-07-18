@@ -11,6 +11,7 @@ class BiasAnalyzer:
         inputs = self.tokenizer(text, return_tensors="pt")
         outputs = self.model(**inputs, labels=self.labels)
         loss, logits = outputs[:2]
+        print(logits.tolist()[0])
         return self.percentages(logits.tolist()[0])
 
     @staticmethod
