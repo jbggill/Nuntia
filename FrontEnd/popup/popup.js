@@ -43,25 +43,3 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     }
   }
 });
-
-// Handle slider input events to update the bias percentages\
-/** 
-$('.slider-container input[type="range"]').on('input', function() {
-  const sliderId = this.id;
-  const sliderValue = this.value;
-  const biasScoreElement = document.getElementById(`bias-score-${sliderId.replace('bias-slider-', '')}`);
-  biasScoreElement.textContent = `${sliderId.replace('bias-slider-', '').replace('-', ' ')}: ${sliderValue}%`;
-
-  // Send updated slider values to the background script
-  chrome.runtime.sendMessage({
-    action: 'updateBiasScore',
-    data: {
-      left: $('#bias-slider-left').val(),
-      right: $('#bias-slider-right').val(),
-      center: $('#bias-slider-center').val(),
-    }
-  }, (response) => {
-    console.log(response);
-  });
-});
-*/
