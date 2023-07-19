@@ -2,6 +2,8 @@
 <html>
 <head>
   <link rel="stylesheet" href="popup.css">
+  <link rel="stylesheet" href="css-percentage-circle-master/css/circle.css">
+
 </head>
 <body>
   <img id = "head" src= "../images/nuntiaText.png" alt="head">
@@ -16,16 +18,41 @@
 
 
   <img id= "frame" src="../images/Frame 2.png" alt = "frame">
+
   <div id="results-container" style="display: block;">
-    <input type="range" id="bias-slider-left" min="0" max="100" step="1" value="33" disabled />
-    <p id="page-bias-value-left"><span id="bias-score-left">Left:</span></p>
+    <div class = "result-container">
+      <h4 class="bias-label">Left</h4>
+      <div id = "page-bias-value-left-wheel" class="c100 p0 small">
+        <span id="bias-score-left">Left</span> 
+        <div class="slice">
+            <div class="bar"></div>
+            <div class="fill"></div>
+        </div>
+      </div>
+    </div>
+    <div class = "result-container">
+      <h4 class="bias-label">Right</h4>
+      <div id = "page-bias-value-right-wheel" class="c100 p0 small">
+        <span id="bias-score-right">Right</span> 
+        <div class="slice">
+            <div class="bar"></div>
+            <div class="fill"></div>
+        </div>
+      </div>
+    </div>
+    <div class = "result-container">
+      <h4 class="bias-label">Center</h4>
+      <div id = "page-bias-value-center-wheel" class="c100 p0 small">
+        <span id="bias-score-center">Center</span> 
+        <div class="slice">
+            <div class="bar"></div>
+            <div class="fill"></div>
+        </div>
+      </div>
+    </div>
 
-    <input type="range" id="bias-slider-right" min="0" max="100" step="1" value="33" disabled />
-    <p id="page-bias-value-right"><span id="bias-score-right">Right: </span></p>
+  </div>
 
-    <input type="range" id="bias-slider-center" min="0" max="100" step="1" value="33" disabled />
-    <p id="page-bias-value-center"><span id="bias-score-center">Center:</span></p>
-</div>
 
   <script src="popup.js"></script>
 </body>

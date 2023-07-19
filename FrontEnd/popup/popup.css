@@ -1,135 +1,77 @@
 body {
-    background: linear-gradient(to bottom, rgb(249, 242, 242), rgb(255, 110, 110));
-    width: 360px;
-    height: 600px;
-    position: relative;
-  }
-
-
-  #frame {
-    position: absolute;
-    top: 85px;
-    left: 50%;
-    transform: translate(-50%, 0%);
-
-    width: 331px;
-    height: 481px;
-    border-radius: 10px;
-    background: #ffdcdc;
-    /*z-index: 1; /* Add this */
-  }
-  
-  #icon {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translate(-50%, 0%);
-    width: 43.901px;
-    height: 50.539px;
-    filter: drop-shadow(1.904328465461731px 3.808656930923462px 3.808656930923462px rgba(0, 0, 0, 0.65));
-  }
-
-  #read-content {
-    position: absolute;
-    top: 80%;
-    left: 50%;
-    background-image: url('../images/Group 23.png');
-    background-size: cover;
-    border: none;
-    transform: translate(-50%, -50%);
-    width: 156px;
-    height: 49px;
-    flex-shrink: 0;
-    border-radius: 10px;
-    background: #D9D9D9;
-    z-index: 3; /* Add this */
-
-  }
-
-  #read-content:hover {
-    cursor: pointer;
-  }
-
-
-  #head {
-    position: absolute;
-    top: 65px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 102px;
-    height: 26.797px;
-  }
-
-  #results-container {
-    color: black;
-    font-size: 20px;
-    text-align: center;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-  .range {
-    -webkit-appearance: none;  /* Override default CSS styles */
-    appearance: none;
-    width: 100%; /* Full-width */
-    height: 25px; /* Specified height */
-    background: #d3d3d3; /* Grey background */
-    outline: none; /* Remove outline */
-    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
-    transition: opacity .2s;
-  }
-/* Add this CSS code to style the sliders and their values */
-.slider-container {
-  width: 100%;
-  display: flex;
-  align-items: center;
+  background: linear-gradient(to bottom, rgb(249, 242, 242), rgb(255, 110, 110));
+  width: 360px;
+  height: 600px;
+  position: relative;
 }
 
-input[type="range"] {
-  width: 100%;
-  margin: 0 10px;
+
+#frame {
+  position: absolute;
+  top: 85px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+
+  width: 331px;
+  height: 500px;
+  border-radius: 10px;
+  background: #ffdcdc;
+  /*z-index: 1; /* Add this */
 }
 
-/* Changes to the width and height here will affect the size of the slider track */
-.range {
-  -webkit-appearance: none;  
-  appearance: none;
-  width: 100%; /* Change this value to affect the width of the slider track */
-  height: 25px; /* Change this value to affect the height of the slider track */
-  background: #d3d3d3; /* Change this value to affect the color of the slider track */
-  outline: none; 
-  opacity: 0.7; 
-  -webkit-transition: .2s; 
-  transition: opacity .2s;
+#icon {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  width: 43.901px;
+  height: 50.539px;
+  filter: drop-shadow(1.904328465461731px 3.808656930923462px 3.808656930923462px rgba(0, 0, 0, 0.65));
 }
 
-/* Changes to the width and height here will affect the size of the slider thumb (the part you drag) */
-/* Also, changes to the background-color will affect the color of the thumb */
-input[type="range"]::-webkit-slider-thumb {
-appearance: none;
-width: 15px; /* Change this value to affect the width of the thumb on WebKit browsers (e.g. Chrome, Safari) */
-height: 15px; /* Change this value to affect the height of the thumb on WebKit browsers */
-background-color: blue; /* Change this value to affect the color of the thumb on WebKit browsers */
-border-radius: 50%; 
-color: violet; /* This color attribute doesn't really do anything for the thumb, you can safely ignore it */
+#read-content {
+  position: absolute;
+  top: 93%;
+  left: 50%;
+  background-image: url('../images/Group 23.png');
+  background-size: cover;
+  border: none;
+  transform: translate(-50%, -50%);
+  width: 156px;
+  height: 49px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: #D9D9D9;
+  z-index: 3; /* Add this */
+
 }
 
-input[type="range"]::-moz-range-thumb {
-width: 15px; /* Change this value to affect the width of the thumb on Mozilla Firefox */
-height: 15px; /* Change this value to affect the height of the thumb on Mozilla Firefox */
-background-color: blueviolet; /* Change this value to affect the color of the thumb on Mozilla Firefox */
-border-radius: 50%; 
-color: violet;
+#read-content:hover {
+  cursor: pointer;
 }
 
-input[type="range"]::-ms-thumb {
-width: 15px; /* Change this value to affect the width of the thumb on Microsoft browsers */
-height: 15px; /* Change this value to affect the height of the thumb on Microsoft browsers */
-background-color: blue; /* Change this value to affect the color of the thumb on Microsoft browsers */
-border-radius: 50%; 
-color: violet;
+
+#head {
+  position: absolute;
+  top: 65px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 102px;
+  height: 26.797px;
+}
+
+#results-container {
+  color: black;
+  font-size: 20px;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#result-container {
+  display: none;
 }
 
 p {
@@ -146,6 +88,13 @@ p {
   font-size: 24px;
   color: rgb(0, 0, 0);
   z-index: 3;
+}
+
+#bias-label {
+    font-size: 20px; 
+    color: #007bff; 
+    font-weight: bold; 
+    margin-top: 10px; 
 }
 
 

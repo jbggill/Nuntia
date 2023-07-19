@@ -32,18 +32,20 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
           sendResponse('data received');
           console.log(data);
           const biasScoreElementLeft = document.getElementById('bias-score-left');
-          biasScoreElementLeft.textContent = `Left: ${data.left}%`;
+          biasScoreElementLeft.textContent = `${data.left}%`;
 
           const biasScoreElementRight = document.getElementById('bias-score-right');
-          biasScoreElementRight.textContent = `Right: ${data.right}%`;
+          biasScoreElementRight.textContent = `${data.right}%`;
 
           const biasScoreElementCentre = document.getElementById('bias-score-center');
-          biasScoreElementCentre.textContent = `Center: ${data.center}%`;
+          biasScoreElementCentre.textContent = `${data.center}%`;
 
           // Set the slider values based on the received data
-          document.getElementById('bias-slider-left').value = data.left;
-          document.getElementById('bias-slider-right').value = data.right;
-          document.getElementById('bias-slider-center').value = data.center;
+        //  document.getElementById('page-bias-value-left').value = data.left;
+        document.getElementById('page-bias-value-left-wheel').classList.add(`c100`, `p${Math.round(data.left)}`, `small`, `orange`);
+        document.getElementById('page-bias-value-right-wheel').classList.add(`c100`, `p${Math.round(data.right)}`, `small`, `green`);
+        document.getElementById('page-bias-value-center-wheel').classList.add(`c100`, `p${Math.round(data.center)}`, `small`);
+
 
           // Hide the loading message
           document.getElementById('loading-message').style.display = 'none';
