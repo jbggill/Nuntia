@@ -60,7 +60,7 @@ body {
     height: 26.797px;
   }
 
-  #message {
+  #results-container {
     color: black;
     font-size: 20px;
     text-align: center;
@@ -92,34 +92,75 @@ input[type="range"] {
   margin: 0 10px;
 }
 
-/* Styles for the slider thumb (handle) for different browsers */
-input[type="range"]::-webkit-slider-thumb {
+/* Changes to the width and height here will affect the size of the slider track */
+.range {
+  -webkit-appearance: none;  
   appearance: none;
-  width: 15px;
-  height: 15px;
-  background-color: blue; /* Blue color for the thumb */
-  border-radius: 50%; /* Make the thumb round */
-  color: violet;
+  width: 100%; /* Change this value to affect the width of the slider track */
+  height: 25px; /* Change this value to affect the height of the slider track */
+  background: #d3d3d3; /* Change this value to affect the color of the slider track */
+  outline: none; 
+  opacity: 0.7; 
+  -webkit-transition: .2s; 
+  transition: opacity .2s;
+}
+
+/* Changes to the width and height here will affect the size of the slider thumb (the part you drag) */
+/* Also, changes to the background-color will affect the color of the thumb */
+input[type="range"]::-webkit-slider-thumb {
+appearance: none;
+width: 15px; /* Change this value to affect the width of the thumb on WebKit browsers (e.g. Chrome, Safari) */
+height: 15px; /* Change this value to affect the height of the thumb on WebKit browsers */
+background-color: blue; /* Change this value to affect the color of the thumb on WebKit browsers */
+border-radius: 50%; 
+color: violet; /* This color attribute doesn't really do anything for the thumb, you can safely ignore it */
 }
 
 input[type="range"]::-moz-range-thumb {
-  width: 15px; /* Adjust the width of the thumb */
-  height: 15px; /* Adjust the height of the thumb */
-  background-color: blueviolet; /* Blueviolet color for the thumb */
-  border-radius: 50%; /* Make the thumb round */
-  color: violet;
+width: 15px; /* Change this value to affect the width of the thumb on Mozilla Firefox */
+height: 15px; /* Change this value to affect the height of the thumb on Mozilla Firefox */
+background-color: blueviolet; /* Change this value to affect the color of the thumb on Mozilla Firefox */
+border-radius: 50%; 
+color: violet;
 }
 
 input[type="range"]::-ms-thumb {
-  width: 15px; /* Adjust the width of the thumb */
-  height: 15px; /* Adjust the height of the thumb */
-  background-color: blue; /* Blue color for the thumb */
-  border-radius: 50%; /* Make the thumb round */
-  color: violet;
+width: 15px; /* Change this value to affect the width of the thumb on Microsoft browsers */
+height: 15px; /* Change this value to affect the height of the thumb on Microsoft browsers */
+background-color: blue; /* Change this value to affect the color of the thumb on Microsoft browsers */
+border-radius: 50%; 
+color: violet;
 }
 
 p {
   margin: 0;
   font-size: 16px;
   font-weight: bold;
+}
+
+#loading-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  color: rgb(0, 0, 0);
+  z-index: 3;
+}
+
+
+
+
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

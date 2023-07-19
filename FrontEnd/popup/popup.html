@@ -9,23 +9,24 @@
 
 
   <img id="read-content" src= "../images/Group 23.png" alt="start">
+  <div id="loading-message" style="display: none;">
+    <div class="loader"></div>
+  </div>
+
+
 
   <img id= "frame" src="../images/Frame 2.png" alt = "frame">
-  <div id="message">
+  <div id="results-container" style="display: block;">
+    <input type="range" id="bias-slider-left" min="0" max="100" step="1" value="33" disabled />
+    <p id="page-bias-value-left"><span id="bias-score-left">Left:</span></p>
 
-      <input type="range" id="bias-slider-left" min="0" max="100" step="1" value="33" disabled />
-      <p id="page-bias-value-left"><span id="bias-score-left">Left:</span></p>
+    <input type="range" id="bias-slider-right" min="0" max="100" step="1" value="33" disabled />
+    <p id="page-bias-value-right"><span id="bias-score-right">Right: </span></p>
 
- 
-      <input type="range" id="bias-slider-right" min="0" max="100" step="1" value="33" disabled />
-      <p id="page-bias-value-right"><span id="bias-score-right">Right: </span></p>
+    <input type="range" id="bias-slider-center" min="0" max="100" step="1" value="33" disabled />
+    <p id="page-bias-value-center"><span id="bias-score-center">Center:</span></p>
+</div>
 
-
-      <input type="range" id="bias-slider-center" min="0" max="100" step="1" value="33" disabled />
-      <p id="page-bias-value-center"><span id="bias-score-center">Center:</span></p>
-
-    
-  </div>
   <script src="popup.js"></script>
 </body>
 </html>
