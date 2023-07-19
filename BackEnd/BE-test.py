@@ -1,5 +1,6 @@
 import unittest
 from app import app
+import os
 
 
 class AppTests(unittest.TestCase):
@@ -8,7 +9,8 @@ class AppTests(unittest.TestCase):
 
     def test_handle_post_with_html(self):
         # Test the POST request with HTML content
-        with open('example_article.txt','r') as txt:
+        dir_path = os.path.dirname(os.path.realpath(__file__))  # get the directory of current script
+        with open(os.path.join(dir_path, 'example_article.txt'),'r') as txt:  # use the directory path to construct full path to the file
             html = txt.read()
         data = {'html': html}
         response = self.app.post('/', json=data)
