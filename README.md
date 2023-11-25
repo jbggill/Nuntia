@@ -56,14 +56,3 @@ python BE-test.py
 
 ## Contributions
 
-Contributions to this project are welcome. Feel free to submit bug reports, feature requests, or pull requests on the project's GitHub repository.
-
-## Credits
-
-The Nuntia application is developed and maintained by the development team. We acknowledge the usage of the Transformers library from Hugging Face for political bias analysis.
-
-## License
-
-The Nuntia application is open-source and released under the [MIT License](LICENSE).
-
-Thank you for using Nuntia! If you have any questions or encounter any issues, don't hesitate to reach out.
